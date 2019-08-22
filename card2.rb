@@ -20,35 +20,10 @@ class Deck
 
   def initialize
     @cards = []
-    y = 0
-    temp = nil
-    while y < 4
-      x = 1
-      if y == 0 
-        temp = :spades
-      elsif y == 1
-        temp = :hearts
-      elsif y == 2
-        temp = :cloves
-      else
-        temp = :diamond
+    ["spades", "diamonds", "clubs", "hearts"].each do |suit|
+      ["A", *(2..10), "J", "Q", "K"].each do |rank|
+        @cards << Card.new(rank, suit)
       end
-
-      while x <= 13
-        if x == 1
-          @cards << Card.new("A", temp)
-        elsif x == 11 
-          @cards << Card.new("J", temp)
-        elsif x == 12
-          @cards << Card.new("Q", temp) 
-        elsif x == 13
-          @cards << Card.new("K", temp)
-        else
-          @cards << Card.new(x.to_s, temp)
-        end
-        x += 1
-      end
-      y += 1
     end
   end
 
@@ -74,8 +49,8 @@ a = Deck.new
 b = Card.new(3,:spades)
 # a.shuffle
 a.output
-a.deal
-a.output
+#a.deal
+#a.output
 # a.deal
 # a.output
 

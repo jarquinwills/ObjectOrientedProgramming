@@ -24,7 +24,7 @@ class Image
     end
   end
 
-  def transform(longitude)
+  def blur(longitude)
     get_ones
     
     @ones.each do |a, b|
@@ -81,5 +81,5 @@ image.output_image
 puts " "
 image.output_ones
 puts " "
-image.transform(1)
+image.blur(2)
 image.output_image
